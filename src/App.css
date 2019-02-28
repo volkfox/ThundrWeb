@@ -30,8 +30,12 @@ h2 {
 }
 
 .noteInput {
-  background-color: yellow;
+  background-color: lightyellow;
   border: none;
+}
+
+.controls {
+  margin: 4px;
 }
 
 .edit {

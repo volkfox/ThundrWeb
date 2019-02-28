@@ -54,8 +54,9 @@ const Postit = (props) => {
 
   const editNote = () => {
     // `current` points to the mounted text input element
-    //inputEl.current.focus();
+    //
     setNoteMode(1);
+    //inputEl.current.focus();
   };
 
   const draggableEventHandler = (e, data) => {
@@ -76,7 +77,7 @@ const Postit = (props) => {
           >
           <div className='handle' style={{position: 'absolute'}}>
            <div className="note" style={{transform: 'rotate( '+ angle +'deg)'}}>
-             <div style={{display: 'flex', flexDirection: 'row-reverse'}}>
+             <div className="controls" style={{display: 'flex', flexDirection: 'row-reverse'}}>
                 <div className='delete' onClick={delNote}>✕</div>
                 <div className='edit' onClick={editNote}>✎</div>
                 <div className='votes' >{votes}</div>
@@ -84,9 +85,9 @@ const Postit = (props) => {
 
             {noteMode ? (<textarea
                            placeholder={'Must be a note here'}
+                           autoFocus
                            rows = "15"
                            cols = "33"
-                           margin = "5px"
                            value = {text}
                            className = "noteInput"
                            disabled = {noteMode?"":"disabled"}
