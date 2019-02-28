@@ -46,12 +46,19 @@ const Session = (props) => {
       commentsRef.on('child_removed', (data) => {
           setMessages(previous => previous.filter(message => message.key !== data.key));
       });
+      commentsRef.on('child_changed', (data) => {
+          const message = {text: data.val().text,
+                           channel: data.val().channel,
+                           posX: data.val().posX,
+                           posY: data.val().posY,
+                           key: data.key
+                           };
+          setMessages(previous => previous.filter(el => el.key !== message.key).concat([message]));
+      });
       return () => {
         commentsRef.off();
       };
   }, []);
-
-  console.log(messages);
 
   return (
     <div id="main">

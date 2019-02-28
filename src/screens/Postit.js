@@ -14,10 +14,7 @@ const Postit = (props) => {
   const posXRef = firebase.database().ref(session+'/messages/'+key+'/posX');
   const posYRef = firebase.database().ref(session+'/messages/'+key+'/posY');
 
-  const [positionX, setPositionX] = useState(props.posX?props.posX:randBetween(0, window.innerWidth/1.5));
-  const [positionY, setPositionY] = useState(props.posY?props.posY:randBetween(0, window.innerHeight/2));
   const [angle, setAngle] = useState(randBetween(-10,20));
-
   const [noteMode, setNoteMode] = useState(0);
   const [text, setText] = useState("");
   useEffect( () => {
@@ -25,6 +22,9 @@ const Postit = (props) => {
       setText(snapshot.val());
     });
   },[]);
+
+  const positionX = props.posX?props.posX:randBetween(0, window.innerWidth/1.5);
+  const positionY = props.posY?props.posY:randBetween(0, window.innerHeight/2);
 
   const delNote = () => {
     noteRef.remove();
