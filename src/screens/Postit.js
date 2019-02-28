@@ -11,9 +11,11 @@ const Postit = (props) => {
   const noteRef = firebase.database().ref(session+'/messages/'+key);
   const messageRef = firebase.database().ref(session+'/messages/'+key+'/text');
   const votesRef = firebase.database().ref(session+'/votes');
+  const posXRef = firebase.database().ref(session+'/messages/'+key+'/posX');
+  const posYRef = firebase.database().ref(session+'/messages/'+key+'/posY');
 
-  const [positionX, setPositionX] = useState(randBetween(0, window.innerWidth/1.5));
-  const [positionY, setPositionY] = useState(randBetween(0, window.innerHeight/2));
+  const [positionX, setPositionX] = useState(props.posX?props.posX:randBetween(0, window.innerWidth/1.5));
+  const [positionY, setPositionY] = useState(props.posY?props.posY:randBetween(0, window.innerHeight/2));
   const [angle, setAngle] = useState(randBetween(-10,20));
 
   const [noteMode, setNoteMode] = useState(0);
@@ -56,15 +58,21 @@ const Postit = (props) => {
     setNoteMode(1);
   };
 
+  const draggableEventHandler = (e, data) => {
+    posXRef.set(data.x);
+    posYRef.set(data.y);
+  }
+
   return(
     <Draggable
-          axis="both"
-          handle=".handle"
-          defaultPosition={{x: positionX, y: positionY}}
-          position={null}
-          grid={[10, 10]}
-          scale={1}
-          disabled={!!noteMode}
+          axis = "both"
+          handle = ".handle"
+          defaultPosition = {{x: positionX, y: positionY}}
+          position = {null}
+          grid = {[10, 10]}
+          scale = {1}
+          onStop = {draggableEventHandler}
+          disabled = {!!noteMode}
           >
           <div className='handle' style={{position: 'absolute'}}>
            <div className="note" style={{transform: 'rotate( '+ angle +'deg)'}}>
@@ -90,7 +98,6 @@ const Postit = (props) => {
                            }}>
                         </textarea> ) : (<div className='text' >{text}</div>)
             }
-
            </div>
           </div>
     </Draggable>

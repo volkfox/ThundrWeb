@@ -13,7 +13,7 @@ const Session = (props) => {
   const filterNotes = (note, i) => {
      if (note.channel === channel) {
        return (
-         <Postit key={note.key} k={note.key} db={firebase} session={session}/>
+         <Postit key={note.key} k={note.key} posX={note.posX} posY={note.posY} db={firebase} session={session}/>
        );
      }
   };
@@ -37,7 +37,10 @@ const Session = (props) => {
       commentsRef.on('child_added', (data) => {
           const message = {text: data.val().text,
                            channel: data.val().channel,
-                           key: data.key};
+                           posX: data.val().posX,
+                           posY: data.val().posY,
+                           key: data.key
+                           };
           setMessages(previous => previous.concat([message]));
       });
       commentsRef.on('child_removed', (data) => {
