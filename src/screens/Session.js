@@ -62,7 +62,7 @@ const Session = (props) => {
 
   return (
     <div id="main">
-    <h2>Session: {session} </h2>
+    <h2>Session# {session} </h2>
       <div className="flexContainer">
           <div className="flexVertical">
            <div id="qr">

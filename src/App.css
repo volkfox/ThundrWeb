@@ -32,6 +32,14 @@ h2 {
 .noteInput {
   background-color: lightyellow;
   border: none;
+  margin-top: 3px;
+
+}
+
+.noteInput:focus {
+    outline: none !important;
+    border:none;
+    box-shadow: 0 0 10px #719ECE;
 }
 
 .controls {
@@ -84,7 +92,8 @@ h2 {
 }
 
 .react-tabs__tab--selected {
-  background-color: lightgray;
+
+  background-image: linear-gradient(to top, floralwhite , lightgray);
 }
 
 
