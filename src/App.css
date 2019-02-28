@@ -38,6 +38,10 @@ h2 {
   margin-right: 10px;
 }
 
+.votes {
+  margin-right: 10px;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -50,6 +54,15 @@ h2 {
 .flexContainer {
   display: flex;
   height: 100%;
+}
+
+.flexVertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.voteButton {
+  height:50px;
 }
 
 .note {
@@ -88,6 +101,7 @@ html{
 .text {
   text-align: justify;
   margin: 5px;
+  white-space: pre-line;
 }
 .react-tabs__tab-panel {
   height: 100%;

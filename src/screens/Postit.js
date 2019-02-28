@@ -10,6 +10,7 @@ const Postit = (props) => {
   const session = props.session;
   const noteRef = firebase.database().ref(session+'/messages/'+key);
   const messageRef = firebase.database().ref(session+'/messages/'+key+'/text');
+  const votesRef = firebase.database().ref(session+'/votes');
 
   const [positionX, setPositionX] = useState(randBetween(0, window.innerWidth/1.5));
   const [positionY, setPositionY] = useState(randBetween(0, window.innerHeight/2));
@@ -23,7 +24,25 @@ const Postit = (props) => {
     });
   },[]);
 
-  const delNote = () => noteRef.remove();
+  const delNote = () => {
+    noteRef.remove();
+    messageRef.remove();
+  }
+
+  const [votes, setVotes] = useState(0);
+  useEffect(() => { // Set up vote listeners. Do not run at every re-render.
+      votesRef.on('child_added', (data) => {
+          const vote = data.val().vote;
+          const voteKey = data.val().key;
+          if (voteKey === key) {
+            setVotes(previous => previous+vote);
+          }
+      });
+      return () => {
+        votesRef.off();
+      };
+  }, []);
+
   const inputEl = useRef(null);
 
   const handleChange = (e) => {
@@ -33,8 +52,8 @@ const Postit = (props) => {
 
   const editNote = () => {
     // `current` points to the mounted text input element
-    setNoteMode(1);
     //inputEl.current.focus();
+    setNoteMode(1);
   };
 
   return(
@@ -52,6 +71,7 @@ const Postit = (props) => {
              <div style={{display: 'flex', flexDirection: 'row-reverse'}}>
                 <div className='delete' onClick={delNote}>✕</div>
                 <div className='edit' onClick={editNote}>✎</div>
+                <div className='votes' >{votes}</div>
             </div>
 
             {noteMode ? (<textarea

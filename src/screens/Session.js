@@ -4,8 +4,6 @@ import "react-tabs/style/react-tabs.css";
 import { QRCode } from "react-qr-svg";
 import Postit from './Postit.js'
 
-
-
 const Session = (props) => {
 
   const match = props.match;
@@ -26,7 +24,7 @@ const Session = (props) => {
     channelRef.set(channel);
   }, [channel]);
 
-  const [mode, setMode] = useState(0);
+  const [mode, setMode] = useState(false);
   useEffect(() => { // updates DB every time mode changes by vote button
     const modeRef = firebase.database().ref(session + '/mode');
     modeRef.set(mode);
@@ -56,34 +54,43 @@ const Session = (props) => {
     <div id="main">
     <h2>Session: {session} </h2>
       <div className="flexContainer">
-       <div id="qr">
-         <QRCode
-               bgColor="#FFFFFF"
-               fgColor="#000000"
-               level="Q"
-               style={{ width: 256 }}
-               value={'com.thundr://session?code="'+session+'"'}
-           />
-       </div>
-        <div id="brain">
-          <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
-          <TabList>
-            <Tab>Brainstorm One</Tab>
-            <Tab>Brainstorm Two</Tab>
-            <Tab>Brainstorm Three</Tab>
-          </TabList>
+          <div className="flexVertical">
+           <div id="qr">
+             <QRCode
+                   bgColor="#FFFFFF"
+                   fgColor="#000000"
+                   level="Q"
+                   style={{ width: 256 }}
+                   value={'com.thundr://session?code="'+session+'"'}
+               />
+           </div>
+           <button type="button"
+                   className="voteButton"
+                   onClick={ () => setMode(previous => !previous)}
+                   style={{backgroundColor: mode?"red":""}}
+                   >
+                   {mode?("Voting"):("Vote")}
+          </button>
+          </div>
+          <div id="brain">
+            <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
+            <TabList>
+              <Tab>Brainstorm One</Tab>
+              <Tab>Brainstorm Two</Tab>
+              <Tab>Brainstorm Three</Tab>
+            </TabList>
 
-          <TabPanel>
-                {messages.map(filterNotes)}
-          </TabPanel>
-          <TabPanel>
-                {messages.map(filterNotes)}
-          </TabPanel>
-          <TabPanel>
-                {messages.map(filterNotes)}
-          </TabPanel>
-        </Tabs>
-      </div>
+            <TabPanel>
+                  {messages.map(filterNotes)}
+            </TabPanel>
+            <TabPanel>
+                  {messages.map(filterNotes)}
+            </TabPanel>
+            <TabPanel>
+                  {messages.map(filterNotes)}
+            </TabPanel>
+          </Tabs>
+          </div>
     </div>
   </div>
  );
