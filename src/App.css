@@ -48,6 +48,11 @@ h2 {
 
 .edit {
   margin-right: 10px;
+  cursor: default;
+}
+
+.delete {
+  cursor: default;
 }
 
 .votes {
