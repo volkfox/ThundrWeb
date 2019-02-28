@@ -65,13 +65,14 @@ const Session = (props) => {
     <h2>Session# {session} </h2>
       <div className="flexContainer">
           <div className="flexVertical">
+           <div className="promo">install Thundr IOS app</div>
            <div id="qr">
              <QRCode
                    bgColor="#FFFFFF"
                    fgColor="#000000"
                    level="Q"
                    style={{ width: 256 }}
-                   value={'com.thundr://session?code="'+session+'"'}
+                   value={'com.thundr://session?code='+session}
                />
            </div>
            <button type="button"
