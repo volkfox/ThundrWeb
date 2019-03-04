@@ -13,12 +13,8 @@ h2 {
 
 .App-logo {
 
-  height: 10vmin;
-  flex: 1;
+  height: 12vmin;
   margin-bottom: -30px;
-
-
-
 }
 
 .App-appstore {
@@ -26,9 +22,11 @@ h2 {
   height: 10vmin;
   top: 35px;
   left: 2400px;
-  position: absolute;
+
   pointer-events: none;
   vertical-align: middle;
+  margin-left:  1700px;
+  margin-top: -70px;
 
 }
 
@@ -46,14 +44,12 @@ h2 {
 .button-logo {
 
   height: 10vmin;
-  /*top: 675px;
-  left: 1480px;*/
-   cursor: pointer;
-  position: absolute;
-  top:53%; 
-  left:57%;
+  cursor: pointer;
+ width: 7vw;
+margin-left: 1200px;
+ margin-bottom: 100px;
+
  
-  pointer-events: none;
   
 
 }
@@ -98,12 +94,14 @@ html,body{
   padding-bottom:100px;
   padding-left: 200px;
   padding-right: 200px;
-
   text-decoration: none;
   cursor: pointer;
-  position: absolute;
-  top:50%; 
-  left:35%;
+
+
+  width: 30vw;
+  margin-left: 870px;
+  margin-top: 400px;
+
  
 
 

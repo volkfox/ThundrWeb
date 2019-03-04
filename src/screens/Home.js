@@ -47,9 +47,10 @@ const Home = (props) => {
      that increases productivity by allowing participants to utilize voice interaction 
      technology to record ideas. </div>
    
-        <Link to={"/session/" + props.code}> <button className='createButton'> Create Brainstorm </button>   <Link to={"/session/" + props.code}>
-        <img src={button} className="button-logo" />
-      </Link>             </Link>
+        <Link to={"/session/" + props.code}> <button className='createButton'> Create Brainstorm </button>  </Link>
+        <Link to={"/session/" + props.code}>
+
+      </Link>
 
       </div>
 
