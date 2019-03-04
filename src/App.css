@@ -8,25 +8,262 @@ h2 {
 }
 
 .App {
-  text-align: center;
   height: 100%;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+
+  height: 10vmin;
+  flex: 1;
+  margin-bottom: -30px;
+
+
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App-appstore {
+
+  height: 10vmin;
+  top: 35px;
+  left: 2400px;
+  position: absolute;
+  pointer-events: none;
+  vertical-align: middle;
+
+}
+
+.landingText {
+  font-family: Helvetica;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  margin-left: 300px;
+  margin-right: 300px;
+
+}
+
+
+.button-logo {
+
+  height: 10vmin;
+  /*top: 675px;
+  left: 1480px;*/
+   cursor: pointer;
+  position: absolute;
+  top:53%; 
+  left:57%;
+ 
+  pointer-events: none;
+  
+
+}
+
+.topText{
+
+  margin-left: -240px;
+}
+
+.header{
+  font-family: Helvetica;
+  background-color: #454899;
+  color: white;
+  padding: 50px;
+  font-size: 100px;
+  text-decoration: none;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+
+}
+
+
+html,body{
+  height: 100%;
+ 
+}
+
+.bg{
+   background-image: url("./notes3.jpeg");
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%
+}
+
+.createButton {
+  background-color: #A6A8E8;
+  border: none;
+  color: white;
+  font-size: 48px;
+  padding-top: 100px;
+  padding-bottom:100px;
+  padding-left: 200px;
+  padding-right: 200px;
+
+  text-decoration: none;
+  cursor: pointer;
+  position: absolute;
+  top:50%; 
+  left:35%;
+ 
+
+
+}
+
+.createButton:hover {
+background-color:  #454899;
+}
+
+
+#qr {
+  width: 128px;  /* Or whatever */
+  height: 128px; /* Or whatever */
+  /**background-color: transparent; **/
+  padding: 20px;
+
+}
+
+#main {
+  height: 100%;
+}
+
+.headerSession{
+  font-family: Helvetica;
+  background-color: #454899;
+  color: white;
+  padding: 50px;
+  font-size: 40px;
+  text-decoration: none;
+
+}
+
+
+.banner0 { 
+margin-top: -40px;
+background-color: #A6ADE8;
+padding: 55px;
+}
+
+.banner1 { 
+margin-top: -40px;
+background-color: #A6E8BC;
+padding: 55px;
+
+}
+
+.banner2 { 
+margin-top: -40px;
+background-color: #E8A6A6;
+padding: 55px;
+
+}
+
+.banner3 { 
+margin-top: -40px;
+background-color: #A6D4E8;
+padding: 55px;
+
+}
+
+.banner4 { 
+margin-top: -40px;
+background-color: #E3A6E8;
+padding: 55px;
+
+}
+
+.voteButton {
+  height:50px;
+  width: 287px;
+}
+
+.tabParent {
+  display: flex;
+  width: 100vw;
+  height: 100%;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+
+
+.tab {
+  flex: 1;
+
+}
+
+
+.voteButton {
+  height:50px;
+  width: 287px;
+}
+
+.note {
+  height: 275px;
+  width: 275px;
+  background-color: white;
+  border: solid black 2px;
+  cursor: -webkit-grab;
+  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+  font: Helvetica;
+  color: black;
+  font-size: 30px;
+}
+
+.noteBanner0 {
+  padding: 2px;
+  background-color: #A6ADE8;
+}
+
+.noteBanner1 {
+  padding: 2px;
+  background-color: #A6E8BC;
+}
+
+.noteBanner2 {
+  padding: 2px;
+  background-color: #E8A6A6;
+}
+
+.noteBanner3 {
+  padding: 2px;
+  background-color: #A6D4E8;
+}
+
+.noteBanner4 {
+  padding: 2px;
+  background-color: #E3A6E8;
+}
+
+.handle {
+  height: 250px;
+  width: 250px;
+
+}
+
+.react-tabs__tab--selected {
+
+  background-image: linear-gradient(to top, #A6ADE8 , lightgray);
+}
+
+
+
+.react-tabs {
+  height: 100%;
+}
+
+
+
+.text {
+  text-align: left;
+  margin: 5px;
+  white-space: pre-line;
+}
+.react-tabs__tab-panel {
+  height: 100%;
+}
+
+.promo: {
+  margin-left: 5px;
+  text-align: left;
 }
 
 .noteInput {
@@ -68,87 +305,21 @@ h2 {
   text-decoration: none;
 }
 
-.flexContainer {
-  display: flex;
-  height: 100%;
-}
 
-.flexVertical {
-  display: flex;
-  flex-direction: column;
-}
+#addTabButton {
+    height: 10vmin;
+  /*top: 675px;
+  left: 1480px;*/
+   cursor: pointer;
+  position: relative;
+    float: right;
+    margin-top: -140px;
+ 
 
-.voteButton {
-  height:50px;
-  width: 287px;
-}
 
-.note {
-  height: 250px;
-  width: 250px;
-  padding: 8px;
-  background-color: yellow;
-  cursor: -webkit-grab;
-  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
-}
-
-.handle {
-  height: 250px;
-  width: 250px;
-}
-
-.react-tabs__tab--selected {
-
-  background-image: linear-gradient(to top, floralwhite , lightgray);
 }
 
 
-html{
-  height: 100%;
-  margin: 0px;
-  background-color: floralwhite;
-}
 
-#main {
-  height: 100%;
-}
 
-.react-tabs {
-  height: 100%;
-}
 
-.text {
-  text-align: left;
-  margin: 5px;
-  white-space: pre-line;
-}
-.react-tabs__tab-panel {
-  height: 100%;
-}
-
-.promo: {
-  margin-left: 5px;
-  text-align: left;
-}
-
-#qr {
-  width: 266px;  /* Or whatever */
-  height: 266px; /* Or whatever */
-  background-color: transparent;
-  padding: 10px;
-  border-right: thin solid lightgrey;
-  border-bottom: thin solid lightgrey;
-  margin-top: 13px;
-}
-#brain {
-  flex: 1;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

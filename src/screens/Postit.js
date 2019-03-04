@@ -25,7 +25,9 @@ const Postit = (props) => {
 
   const positionX = props.posX?props.posX:randBetween(0, window.innerWidth/1.5);
   const positionY = props.posY?props.posY:randBetween(0, window.innerHeight/2);
-
+ 
+  var channelClass = "noteBanner" + props.channel;
+  
   const delNote = () => {
     noteRef.remove();
     messageRef.remove();
@@ -75,12 +77,18 @@ const Postit = (props) => {
           onStop = {draggableEventHandler}
           disabled = {!!noteMode}
           >
+
           <div className='handle' style={{position: 'absolute'}}>
            <div className="note" style={{transform: 'rotate( '+ angle +'deg)'}}>
+           <div className={channelClass}> 
              <div className="controls" style={{display: 'flex', flexDirection: 'row-reverse'}}>
                 <div className='delete' onClick={delNote}>✕</div>
                 <div className='edit' onClick={editNote}>✎</div>
                 <div className='votes' >{votes}</div>
+                </div>
+           
+
+           
             </div>
 
             {noteMode ? (<textarea

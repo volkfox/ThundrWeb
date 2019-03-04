@@ -3,6 +3,9 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
 import { QRCode } from "react-qr-svg";
 import Postit from './Postit.js'
+import button from '../button.jpeg';
+
+
 
 const Session = (props) => {
 
@@ -10,10 +13,13 @@ const Session = (props) => {
   const session = match.params.id;
   const firebase = props.db;
 
+
+
+
   const filterNotes = (note, i) => {
      if (note.channel === channel) {
        return (
-         <Postit key={note.key} k={note.key} posX={note.posX} posY={note.posY} db={firebase} session={session}/>
+         <Postit key={note.key} k={note.key} posX={note.posX} posY={note.posY} db={firebase} session={session} channel={note.channel}/>
        );
      }
   };
@@ -31,7 +37,8 @@ const Session = (props) => {
   }, [mode]);
 
   const commentsRef = firebase.database().ref(session+ '/messages');
-
+ const banner = "banner" + channel;
+  
   const [messages, setMessages] = useState([]);
   useEffect(() => { // Set up message listeners. Do not run at every re-render.
       commentsRef.on('child_added', (data) => {
@@ -54,55 +61,83 @@ const Session = (props) => {
                            key: data.key
                            };
           setMessages(previous => previous.filter(el => el.key !== message.key).concat([message]));
+
+          
       });
+
+
+
+      
       return () => {
         commentsRef.off();
       };
-  }, []);
+}, 
+
+  []);
 
   return (
-    <div id="main">
-    <h2>Session# {session} </h2>
-      <div className="flexContainer">
-          <div className="flexVertical">
-           <div className="promo">install Thundr IOS app</div>
-           <div id="qr">
+    <div>
+
+    <script>
+
+console.log("hi");
+    </script>
+
+    <div className = "headerSession">  
+      <div className = "code"> <b> Code: {session} </b> </div>      
+      <div id="qr">
              <QRCode
                    bgColor="#FFFFFF"
                    fgColor="#000000"
                    level="Q"
-                   style={{ width: 256 }}
+                   style={{ width: 200 }}
                    value={'com.thundr://session?code='+session}
                />
-           </div>
-           <button type="button"
+           </div> 
+
+            <img src={button} id="addTabButton" />
+
+              <div className="tabParent">
+                <div id="tab">
+                  <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
+                    <TabList>
+                      
+
+                      <Tab> Brainstorm One</Tab>
+                      <Tab>  Brainstorm Two</Tab>
+                      <Tab>Brainstorm Three</Tab>
+
+                    
+
+                    </TabList>
+                  <TabPanel>
+                    {messages.map(filterNotes)}
+                  </TabPanel>
+                  <TabPanel>
+                    {messages.map(filterNotes)}
+                  </TabPanel>
+                  <TabPanel>
+                    {messages.map(filterNotes)}
+                  </TabPanel>
+                </Tabs>
+              </div>
+        </div> 
+    </div>
+    
+
+    <div className = {banner}> 
+             <button type="button"
                    className="voteButton"
                    onClick={ () => setMode(previous => !previous)}
-                   style={{backgroundColor: mode?"red":""}}
+                   style={{backgroundColor: mode? "#9556FB":"#E3D2FF"}}
                    >
-                   {mode?("Voting"):("Vote")}
+                   {mode?("Switch to Idea Mode"):("Switch to Vote Mode")}
           </button>
-          </div>
-          <div id="brain">
-            <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
-            <TabList>
-              <Tab>Brainstorm One</Tab>
-              <Tab>Brainstorm Two</Tab>
-              <Tab>Brainstorm Three</Tab>
-            </TabList>
-
-            <TabPanel>
-                  {messages.map(filterNotes)}
-            </TabPanel>
-            <TabPanel>
-                  {messages.map(filterNotes)}
-            </TabPanel>
-            <TabPanel>
-                  {messages.map(filterNotes)}
-            </TabPanel>
-          </Tabs>
-          </div>
     </div>
+    
+    
+      
+
   </div>
  );
 
