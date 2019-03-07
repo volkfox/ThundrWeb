@@ -1,7 +1,7 @@
-h2 {
+/*h2 {
   text-align: left;
   margin: 10px;
-}
+}*/
 
 #root {
   height: 100%;
@@ -17,6 +17,7 @@ h2 {
   height: 40vmin;
   pointer-events: none;
 }
+
 
 .App-header {
   background-color: #282c34;
@@ -39,6 +40,7 @@ h2 {
 .noteInput:focus {
     outline: none !important;
     border:none;
+    background-color: white;
     box-shadow: 0 0 10px #719ECE;
 }
 
@@ -51,12 +53,25 @@ h2 {
   cursor: default;
 }
 
+.thumbButton {
+    height: 1.7vmin;
+    margin-right: 4px;
+    margin-top: 1px;
+    
+}
+
+
+ 
+
 .delete {
   cursor: default;
+  margin-left: auto;
+
 }
 
 .votes {
-  margin-right: 10px;
+
+
 }
 
 .App-link {
@@ -70,26 +85,67 @@ h2 {
 
 .flexContainer {
   display: flex;
+  flex-direction: row-reverse;
   height: 100%;
+
+
 }
 
 .flexVertical {
   display: flex;
   flex-direction: column;
+  align-self: flex-end;
+  
+
+}
+
+.codeC{
+  align-self: flex-start;
+
 }
 
 .voteButton {
-  height:50px;
-  width: 287px;
+
+  height:40px;
+  width: 200px;
+}
+
+#span1 {
+
 }
 
 .note {
   height: 250px;
   width: 250px;
-  padding: 8px;
-  background-color: yellow;
+
+  background-color: white;
+  border: solid black 2px;
   cursor: -webkit-grab;
   box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+}
+
+.noteBanner0{
+  padding: 2px;
+  background-color: #A6ADE8;
+}
+.noteBanner1 {
+  padding: 2px;
+  background-color: #A6E8BC;
+}
+
+.noteBanner2 {
+  padding: 2px;
+  background-color: #E8A6A6;
+}
+
+.noteBanner3 {
+  padding: 2px;
+  background-color: #A6D4E8;
+}
+
+.noteBanner4 {
+  padding: 2px;
+  background-color: #E3A6E8;
 }
 
 .handle {
@@ -106,7 +162,7 @@ h2 {
 html{
   height: 100%;
   margin: 0px;
-  background-color: floralwhite;
+  background-color: white;
 }
 
 #main {
@@ -115,6 +171,7 @@ html{
 
 .react-tabs {
   height: 100%;
+  padding: 10px;
 }
 
 .text {
@@ -134,14 +191,16 @@ html{
 #qr {
   width: 266px;  /* Or whatever */
   height: 266px; /* Or whatever */
-  background-color: transparent;
+  background-color: white;
   padding: 10px;
   border-right: thin solid lightgrey;
   border-bottom: thin solid lightgrey;
   margin-top: 13px;
+
 }
-#brain {
+.brain {
   flex: 1;
+  
 }
 
 @keyframes App-logo-spin {

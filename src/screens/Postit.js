@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Draggable from 'react-draggable';
+import thumb from '../thumb0.svg';
 
 const randBetween = (from, to) => (Math.floor(Math.random() * to) + from);
 
@@ -25,6 +26,8 @@ const Postit = (props) => {
 
   const positionX = props.posX?props.posX:randBetween(0, window.innerWidth/1.5);
   const positionY = props.posY?props.posY:randBetween(0, window.innerHeight/2);
+
+  var channelClass = "noteBanner" + props.channel;
 
   const delNote = () => {
     noteRef.remove();
@@ -65,7 +68,7 @@ const Postit = (props) => {
   }
 
   return(
-    <Draggable
+ <Draggable
           axis = "both"
           handle = ".handle"
           defaultPosition = {{x: positionX, y: positionY}}
@@ -75,12 +78,20 @@ const Postit = (props) => {
           onStop = {draggableEventHandler}
           disabled = {!!noteMode}
           >
+
           <div className='handle' style={{position: 'absolute'}}>
            <div className="note" style={{transform: 'rotate( '+ angle +'deg)'}}>
-             <div className="controls" style={{display: 'flex', flexDirection: 'row-reverse'}}>
-                <div className='delete' onClick={delNote}>✕</div>
+           <div className={channelClass}> 
+             <div className="controls" style={{display: 'flex'}}>
                 <div className='edit' onClick={editNote}>✎</div>
+                <img src={thumb} className="thumbButton"/>
                 <div className='votes' >{votes}</div>
+
+                <div className='delete' onClick={delNote}>✕</div>
+                </div>
+           
+
+           
             </div>
 
             {noteMode ? (<textarea

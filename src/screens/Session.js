@@ -13,7 +13,7 @@ const Session = (props) => {
   const filterNotes = (note, i) => {
      if (note.channel === channel) {
        return (
-         <Postit key={note.key} k={note.key} posX={note.posX} posY={note.posY} db={firebase} session={session}/>
+         <Postit key={note.key} k={note.key} posX={note.posX} posY={note.posY} db={firebase} session={session} channel={note.channel}/>
        );
      }
   };
@@ -61,11 +61,13 @@ const Session = (props) => {
   }, []);
 
   return (
+
     <div id="main">
-    <h2>Session# {session} </h2>
+
+
       <div className="flexContainer">
           <div className="flexVertical">
-           <div className="promo">install Thundr IOS app</div>
+           <h2 className="codeC"> <b> Code: {session} </b> </h2>
            <div id="qr">
              <QRCode
                    bgColor="#FFFFFF"
@@ -75,20 +77,26 @@ const Session = (props) => {
                    value={'com.thundr://session?code='+session}
                />
            </div>
-           <button type="button"
-                   className="voteButton"
-                   onClick={ () => setMode(previous => !previous)}
-                   style={{backgroundColor: mode?"red":""}}
-                   >
-                   {mode?("Voting"):("Vote")}
-          </button>
+   
           </div>
-          <div id="brain">
+          <div className="brain">
+
+
             <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
             <TabList>
+              <button type="button"
+                       className="voteButton"
+                       onClick={ () => setMode(previous => !previous)}
+                       style={{backgroundColor: mode?"red":""}}
+                       >
+                       {mode?("Voting"):("Vote")}
+              </button>
+
               <Tab>Brainstorm One</Tab>
               <Tab>Brainstorm Two</Tab>
               <Tab>Brainstorm Three</Tab>
+              <Tab>Brainstorm Four</Tab>
+              <Tab>Brainstorm Five</Tab>
             </TabList>
 
             <TabPanel>
@@ -98,6 +106,12 @@ const Session = (props) => {
                   {messages.map(filterNotes)}
             </TabPanel>
             <TabPanel>
+                  {messages.map(filterNotes)}
+            </TabPanel>
+              <TabPanel>
+                  {messages.map(filterNotes)}
+            </TabPanel>
+              <TabPanel>
                   {messages.map(filterNotes)}
             </TabPanel>
           </Tabs>
