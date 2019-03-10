@@ -31,6 +31,8 @@ const Session = (props) => {
   }, [mode]);
 
   const commentsRef = firebase.database().ref(session+ '/messages');
+  const banner = "banner" + channel;
+  const flexV = "flexV" +  channel;
 
   const [messages, setMessages] = useState([]);
   useEffect(() => { // Set up message listeners. Do not run at every re-render.
@@ -64,23 +66,26 @@ const Session = (props) => {
 
     <div id="main">
 
-
       <div className="flexContainer">
-          <div className="flexVertical">
+          <div className={flexV}>
            <h2 className="codeC"> <b> Code: {session} </b> </h2>
            <div id="qr">
              <QRCode
                    bgColor="#FFFFFF"
                    fgColor="#000000"
                    level="Q"
-                   style={{ width: 256 }}
+                   style={{ width: 180 }}
                    value={'com.thundr://session?code='+session}
                />
+           
+
+
            </div>
    
           </div>
           <div className="brain">
 
+          <div className= {banner}> 
 
             <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
             <TabList>
@@ -117,6 +122,7 @@ const Session = (props) => {
           </Tabs>
           </div>
     </div>
+  </div>
   </div>
  );
 
