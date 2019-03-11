@@ -8,6 +8,7 @@ import trash from '../Trash.svg';
 //style={{backgroundColor: mode?"white":"white", border: mode?"solid purple 3px":"solid purple 3px"}}
 
 const Session = (props) => {
+ 
 
   const match = props.match;
   const session = match.params.id;
@@ -28,12 +29,51 @@ const Session = (props) => {
   }
 
 
-
-
   const [channel, setChannel] = useState(0);
   useEffect(() => { // updates DB every time channel changes by tab switching
     const channelRef = firebase.database().ref(session + '/channel');
     channelRef.set(channel);
+    var x = document.getElementById("voteButton");
+
+        if(mode === false){
+        if(channel === 0){
+          x.style.backgroundColor = "#7E7DB1";
+        }
+        if(channel === 1){
+          x.style.backgroundColor = "#7DB185";
+        }
+        if(channel === 2){
+          x.style.backgroundColor = "#B17D7D";
+        }
+         if(channel === 3){
+          x.style.backgroundColor = "#7DAAB1"; 
+        }
+         if(channel === 4){
+          x.style.backgroundColor = "#B17DAB";  
+        }
+
+      } else {
+          if(channel === 0){
+          x.style.backgroundColor = "#454899";
+        }
+         if(channel === 1){
+          x.style.backgroundColor = "#386E4A";
+        }
+        if(channel === 2){
+          x.style.backgroundColor = "#843F3F";
+        }
+         if(channel === 3){
+          x.style.backgroundColor = "#396F87";
+        }
+         if(channel === 4){
+          x.style.backgroundColor = "#6F4172";
+        }
+    }
+
+
+
+
+    
   }, [channel]);
 
   const [mode, setMode] = useState(false);
@@ -51,58 +91,49 @@ const Session = (props) => {
       setMode(previous => !previous)
       var x  = document.getElementById("voteButton");
       
-      console.log(x);
-      console.log(channel);
-
-      if(mode ===true){
-        if(channel=== 0){
+      if(mode === true){
+        if(channel === 0){
           x.style.backgroundColor = "#7E7DB1";
         }
-        if(channel ===1){
+        if(channel === 1){
           x.style.backgroundColor = "#7DB185";
-
         }
-        if(channel ===2){
+        if(channel === 2){
           x.style.backgroundColor = "#B17D7D";
-
         }
-         if(channel ===3){
-          x.style.backgroundColor = "#7DAAB1";
-          
+         if(channel === 3){
+          x.style.backgroundColor = "#7DAAB1"; 
         }
-         if(channel ===4){
-          x.style.backgroundColor = "#B17DAB";
-          
+         if(channel === 4){
+          x.style.backgroundColor = "#B17DAB";  
         }
 
       } else {
-          if(channel ===0){
-          x.style.backgroundColor = "#A6ADE8";
+          if(channel === 0){
+          x.style.backgroundColor = "#454899";
         }
-        
-         if(channel ===1){
-          x.style.backgroundColor = "#A6E8BC";
+         if(channel === 1){
+          x.style.backgroundColor = "#386E4A";
         }
-
         if(channel === 2){
-          x.style.backgroundColor = "#E8A6A6";
-
+          x.style.backgroundColor = "#843F3F";
         }
-         if(channel ===3){
-          x.style.backgroundColor = "#A6ADE8";
-          
+         if(channel === 3){
+          x.style.backgroundColor = "#396F87";
         }
-         if(channel ===4){
-          x.style.backgroundColor = "#E3A6E8";
+         if(channel === 4){
+          x.style.backgroundColor = "#6F4172";
         }
-}
-
-
+    }
       
   }
 
 
+    
+
+
   const [messages, setMessages] = useState([]);
+
   useEffect(() => { // Set up message listeners. Do not run at every re-render.
       commentsRef.on('child_added', (data) => {
           const message = {text: data.val().text,
@@ -113,6 +144,9 @@ const Session = (props) => {
                            };
           setMessages(previous => previous.concat([message]));
       });
+
+
+
       commentsRef.on('child_removed', (data) => {
           setMessages(previous => previous.filter(message => message.key !== data.key));
       });
@@ -124,13 +158,17 @@ const Session = (props) => {
                            key: data.key
                            };
           setMessages(previous => previous.filter(el => el.key !== message.key).concat([message]));
+
+
       });
+
 
 
       return () => {
         commentsRef.off();
       };
-  }, []);
+
+  } , []);
 
   return (
 
@@ -153,8 +191,7 @@ const Session = (props) => {
 
           <div className= {banner}> 
 
-            <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
-            
+            <Tabs defaultIndex={0} onSelect={index => setChannel(index)}> 
             <TabList>
               <button type="button"
                        id="voteButton"
@@ -162,14 +199,12 @@ const Session = (props) => {
                        >
                        {mode?("Click to Brainstorm"):("Click to Vote")}
               </button>
-
              <span className="tabCl">
               <Tab>Brainstorm One</Tab>
               <Tab>Brainstorm Two</Tab>
               <Tab>Brainstorm Three</Tab>
               <Tab>Brainstorm Four</Tab>
               <Tab>Brainstorm Five</Tab>
-
               </span>
             
             </TabList>

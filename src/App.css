@@ -163,71 +163,14 @@
   border-radius: 20px;
   font-size: 20px;
   background-color: #7E7DB1;
+  color: white;
+  border: solid white 1px;
 
 }
 
 #voteButton:focus {
   outline:0;
 }
-
-#voteButton1 {
-
-  margin-right: 50px;
-  height:40px;
-  width: 200px;
-  border-radius: 20px;
-  font-size: 20px;
-
-}
-
-#voteButton1:focus {
-  outline:0;
-}
-
-
-#voteButton2 {
-
-  margin-right: 50px;
-  height:40px;
-  width: 200px;
-  border-radius: 20px;
-  font-size: 20px;
-
-}
-
-#voteButton2:focus {
-  outline:0;
-}
-
-
-#voteButton3 {
-
-  margin-right: 50px;
-  height:40px;
-  width: 200px;
-  border-radius: 20px;
-  font-size: 20px;
-
-}
-
-#voteButton3:focus {
-  outline:0;
-}
-
-#voteButton4 {
-
-  margin-right: 50px;
-  height:40px;
-  width: 200px;
-  border-radius: 20px;
-  font-size: 20px;
-
-}
-
-#voteButton4:focus {
-  outline:0;
-}
-
 
 .note {
   height: 250px;
