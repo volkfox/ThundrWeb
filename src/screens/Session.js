@@ -3,6 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
 import { QRCode } from "react-qr-svg";
 import Postit from './Postit.js'
+import thumb from '../thumb0.svg';
 
 const Session = (props) => {
 
@@ -77,15 +78,13 @@ const Session = (props) => {
                    style={{ width: 180 }}
                    value={'com.thundr://session?code='+session}
                />
-           
-
 
            </div>
-   
+
           </div>
           <div className="brain">
 
-          <div className= {banner}> 
+          <div className= {banner}>
 
             <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
             <TabList>
@@ -94,7 +93,7 @@ const Session = (props) => {
                        onClick={ () => setMode(previous => !previous)}
                        style={{backgroundColor: mode?"red":""}}
                        >
-                       {mode?("Voting"):("Vote")}
+                       <img src={thumb} style = {mode?({opacity: 1.0}):({opacity: 0.2})} className="thumbButton"/>
               </button>
 
               <Tab>Brainstorm One</Tab>

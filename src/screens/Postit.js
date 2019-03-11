@@ -81,7 +81,7 @@ const Postit = (props) => {
 
           <div className='handle' style={{position: 'absolute'}}>
            <div className="note" style={{transform: 'rotate( '+ angle +'deg)'}}>
-           <div className={channelClass}> 
+           <div className={channelClass}>
              <div className="controls" style={{display: 'flex'}}>
                 <div className='edit' onClick={editNote}>✎</div>
                 <img src={thumb} className="thumbButton"/>
@@ -89,16 +89,16 @@ const Postit = (props) => {
 
                 <div className='delete' onClick={delNote}>✕</div>
                 </div>
-           
 
-           
+
+
             </div>
 
             {noteMode ? (<textarea
                            placeholder={'Must be a note here'}
                            autoFocus
-                           rows = "15"
-                           cols = "33"
+                           rows = "12"
+                           cols = "40"
                            value = {text}
                            className = "noteInput"
                            disabled = {noteMode?"":"disabled"}
