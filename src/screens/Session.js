@@ -69,10 +69,6 @@ const Session = (props) => {
           x.style.backgroundColor = "#6F4172";
         }
     }
-
-
-
-
     
   }, [channel]);
 
