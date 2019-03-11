@@ -171,7 +171,7 @@
   font-family: Avenir;
   font-size: 20px;
   background-color: lightyellow;
-  border: solid grey 2px;
+  border: solid lightgray 1px;
   cursor: -webkit-grab;
   box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
 
