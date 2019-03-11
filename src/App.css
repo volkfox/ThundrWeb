@@ -59,13 +59,25 @@
 }
 
 
+
+
 .thumbButton {
     height: 2.1vmin;
     margin-right: 4px;
     margin-top: 4px;
-    
 }
 
+
+
+.trashcan {
+  height: 8vmin;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+}
 
 .delete {
   cursor: pointer;
@@ -74,10 +86,6 @@
 
 }
 
-.votes {
-
-
-}
 
 .App-link {
   color: #61dafb;
@@ -147,17 +155,79 @@
 
 }
 
-.voteButton {
+#voteButton {
 
   margin-right: 50px;
   height:40px;
   width: 200px;
   border-radius: 20px;
+  font-size: 20px;
+  background-color: #7E7DB1;
+
 }
 
-#span1 {
+#voteButton:focus {
+  outline:0;
+}
+
+#voteButton1 {
+
+  margin-right: 50px;
+  height:40px;
+  width: 200px;
+  border-radius: 20px;
+  font-size: 20px;
 
 }
+
+#voteButton1:focus {
+  outline:0;
+}
+
+
+#voteButton2 {
+
+  margin-right: 50px;
+  height:40px;
+  width: 200px;
+  border-radius: 20px;
+  font-size: 20px;
+
+}
+
+#voteButton2:focus {
+  outline:0;
+}
+
+
+#voteButton3 {
+
+  margin-right: 50px;
+  height:40px;
+  width: 200px;
+  border-radius: 20px;
+  font-size: 20px;
+
+}
+
+#voteButton3:focus {
+  outline:0;
+}
+
+#voteButton4 {
+
+  margin-right: 50px;
+  height:40px;
+  width: 200px;
+  border-radius: 20px;
+  font-size: 20px;
+
+}
+
+#voteButton4:focus {
+  outline:0;
+}
+
 
 .note {
   height: 250px;
@@ -210,21 +280,26 @@
 
 .banner0{
   background-color: #A6ADE8;
+  display: flex;
 }
 .banner1 {
   background-color: #A6E8BC;
+  display: flex;
 }
 
 .banner2 {
   background-color: #E8A6A6;
+  display: flex;
 }
 
 .banner3 {
   background-color: #A6D4E8;
+  display: flex;
 }
 
 .banner4 {
   background-color: #E3A6E8;
+  display: flex;
 }
 
 
@@ -238,6 +313,12 @@
   background-image: linear-gradient(to top, white , white);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+}
+
+.tabCl{
+  display: inline-flex;
+  margin-left: 200px
+
 }
 
 
@@ -254,6 +335,7 @@ html{
 .react-tabs {
   height: 100%;
   padding: 10px;
+
 
 }
 
@@ -282,8 +364,7 @@ html{
 
 }
 .brain {
-  flex: 1;
-  
+  flex: 1; 
 }
 
 @keyframes App-logo-spin {

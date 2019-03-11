@@ -3,6 +3,9 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
 import { QRCode } from "react-qr-svg";
 import Postit from './Postit.js'
+import trash from '../Trash.svg';
+
+//style={{backgroundColor: mode?"white":"white", border: mode?"solid purple 3px":"solid purple 3px"}}
 
 const Session = (props) => {
 
@@ -17,6 +20,15 @@ const Session = (props) => {
        );
      }
   };
+
+    const deleteBrainstorm = () => {
+    alert("Are you sure you want to delete your brainstorm?");
+
+    //we need some sort of delete functionality here
+  }
+
+
+
 
   const [channel, setChannel] = useState(0);
   useEffect(() => { // updates DB every time channel changes by tab switching
@@ -33,6 +45,62 @@ const Session = (props) => {
   const commentsRef = firebase.database().ref(session+ '/messages');
   const banner = "banner" + channel;
   const flexV = "flexV" +  channel;
+
+
+    const clickIt = () => {
+      setMode(previous => !previous)
+      var x  = document.getElementById("voteButton");
+      
+      console.log(x);
+      console.log(channel);
+
+      if(mode ===true){
+        if(channel=== 0){
+          x.style.backgroundColor = "#7E7DB1";
+        }
+        if(channel ===1){
+          x.style.backgroundColor = "#7DB185";
+
+        }
+        if(channel ===2){
+          x.style.backgroundColor = "#B17D7D";
+
+        }
+         if(channel ===3){
+          x.style.backgroundColor = "#7DAAB1";
+          
+        }
+         if(channel ===4){
+          x.style.backgroundColor = "#B17DAB";
+          
+        }
+
+      } else {
+          if(channel ===0){
+          x.style.backgroundColor = "#A6ADE8";
+        }
+        
+         if(channel ===1){
+          x.style.backgroundColor = "#A6E8BC";
+        }
+
+        if(channel === 2){
+          x.style.backgroundColor = "#E8A6A6";
+
+        }
+         if(channel ===3){
+          x.style.backgroundColor = "#A6ADE8";
+          
+        }
+         if(channel ===4){
+          x.style.backgroundColor = "#E3A6E8";
+        }
+}
+
+
+      
+  }
+
 
   const [messages, setMessages] = useState([]);
   useEffect(() => { // Set up message listeners. Do not run at every re-render.
@@ -57,6 +125,8 @@ const Session = (props) => {
                            };
           setMessages(previous => previous.filter(el => el.key !== message.key).concat([message]));
       });
+
+
       return () => {
         commentsRef.off();
       };
@@ -77,31 +147,31 @@ const Session = (props) => {
                    style={{ width: 180 }}
                    value={'com.thundr://session?code='+session}
                />
-           
-
-
            </div>
-   
           </div>
           <div className="brain">
 
           <div className= {banner}> 
 
             <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
+            
             <TabList>
               <button type="button"
-                       className="voteButton"
-                       onClick={ () => setMode(previous => !previous)}
-                       style={{backgroundColor: mode?"red":""}}
+                       id="voteButton"
+                       onClick={clickIt}
                        >
-                       {mode?("Voting"):("Vote")}
+                       {mode?("Click to Brainstorm"):("Click to Vote")}
               </button>
 
+             <span className="tabCl">
               <Tab>Brainstorm One</Tab>
               <Tab>Brainstorm Two</Tab>
               <Tab>Brainstorm Three</Tab>
               <Tab>Brainstorm Four</Tab>
               <Tab>Brainstorm Five</Tab>
+
+              </span>
+            
             </TabList>
 
             <TabPanel>
@@ -123,7 +193,12 @@ const Session = (props) => {
           </div>
     </div>
   </div>
+  
+   <img src={trash} onClick={deleteBrainstorm} className="trashcan"/>
+
   </div>
+
+  
  );
 
 };
