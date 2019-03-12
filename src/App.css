@@ -138,21 +138,20 @@
 
 }
 
-
-
-
 .voteButton {
 
   margin-right: 50px;
   height:40px;
   width: 200px;
   border-radius: 20px;
-  font-size: 20px;
   background-color: #7E7DB1;
   color: black;
-  border: solid black 1px;
+  border: solid gray 1px;
   cursor: pointer;
   outline: none !important;
+  font-weight: bolder;
+  font-family: Avenir;
+  font-size: 20.7px;
 }
 
 #span1 {
@@ -165,7 +164,7 @@
   border-radius: 15px;
   font-family: Avenir;
   font-size: 20px;
-  background-color: #FFFFF6;
+  background-color: #FFFFE8;
   border: solid lightgray 1px;
   cursor: -webkit-grab;
   box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
@@ -252,6 +251,7 @@
   background-image: linear-gradient(to top, white , white);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+  padding-top: 10px;
 }
 
 
@@ -291,7 +291,7 @@ html{
   background-color: white;
   padding-top: 10px;
   padding-right: 15px;
-  
+
 }
 
 .codeC{

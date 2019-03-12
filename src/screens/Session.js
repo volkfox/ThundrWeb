@@ -93,7 +93,8 @@ const Session = (props) => {
                        onClick={ () => setMode(previous => !previous)}
                        style={{backgroundColor: mode?"red":"white"}}
                        >
-                      {mode?("Stop"):("Click to Vote")} 
+                      {mode?("Stop"):("Click to ")}
+                      {!mode && <img src={thumb} className="thumbButton"/>}
               </button>
 
               <span className="tabCl">
