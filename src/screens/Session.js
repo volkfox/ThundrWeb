@@ -23,6 +23,8 @@ const Session = (props) => {
   useEffect(() => { // updates DB every time channel changes by tab switching
     const channelRef = firebase.database().ref(session + '/channel');
     channelRef.set(channel);
+
+    console.log(channel);
   }, [channel]);
 
   const [mode, setMode] = useState(false);
@@ -83,24 +85,24 @@ const Session = (props) => {
 
           </div>
           <div className="brain">
-
           <div className= {banner}>
-
             <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
             <TabList>
               <button type="button"
                        className="voteButton"
                        onClick={ () => setMode(previous => !previous)}
-                       style={{backgroundColor: mode?"red":""}}
+                       style={{backgroundColor: mode?"red":"white"}}
                        >
-                       <img src={thumb} style = {mode?({opacity: 1.0}):({opacity: 0.2})} className="thumbButton"/>
+                      {mode?("Stop"):("Click to Vote")} 
               </button>
 
+              <span className="tabCl">
               <Tab>Brainstorm One</Tab>
               <Tab>Brainstorm Two</Tab>
               <Tab>Brainstorm Three</Tab>
               <Tab>Brainstorm Four</Tab>
               <Tab>Brainstorm Five</Tab>
+              </span>
             </TabList>
 
             <TabPanel>
