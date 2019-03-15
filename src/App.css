@@ -14,19 +14,20 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  /*animation: App-logo-spin infinite 20s linear;*/
   height: 40vmin;
   pointer-events: none;
 }
 
 
 .App-header {
-  background-color: #282c34;
+  /*background-color: #282c34;*/
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #A6ADE8;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -111,7 +112,6 @@
 
 }
 
-
 .flexV2 {
   display: flex;
   flex-direction: column;
@@ -161,7 +161,7 @@
 .note {
   height: 250px;
   width: 250px;
-  border-radius: 15px;
+  border-radius: 0px;
   font-family: Avenir;
   font-size: 20px;
   background-color: #FFFFE8;
@@ -175,8 +175,8 @@
 .noteBanner0{
   padding: 2px;
   background-color: #A6ADE8;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 
 }
 .noteBanner1 {
@@ -311,6 +311,7 @@ html{
 
 .react-tabs__tab-list {
   border: none;
+  color: white;
 }
 
 .react-tabs {
@@ -321,6 +322,111 @@ html{
   padding-bottom: 19px;
   margin-bottom: -9px;
 
+}
+
+
+.tabs-body {
+     position: absolute;
+     top: 20px;
+     right: 100px;
+  }
+    .tabs-header {
+      display: table;
+      width: 100%;
+      list-style-type: none;
+    }
+      .tabs-header li {
+        display: table-cell;
+        text-align: center;
+        color: #ECF0F1;
+        cursor: pointer;
+      }
+        .tabs-header li > a {
+          display: block;
+          padding: 15px;
+          background: #A6ADE8;
+          transition: all .2s ease-in;
+          transform: skew(-40deg);
+        }
+          .tabs-header li > a span {
+            display: block;
+            transform: skew(40deg);
+          }
+        .tabs-header li > a:hover {
+          background: black;
+          color: #F7F9F9;
+        }
+        .tabs-header li.active > a {
+          background: black;
+        }
+
+    .tabs-content {
+      margin-top: 0px;
+      position: relative;
+      text-align: left;
+      padding-left: 15px;
+      color: black;
+      overflow: hidden;
+    }
+      .tabs-content .tabs-textItem {
+        display: none;
+        transform: translateY(100%);
+      }
+      .tabs-content .tabs-textItem.show {
+        display: block;
+        transform: translateY(0);
+        color: black;
+        animation: change .49s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .tabs-content .tabs-textItem p {
+        font: Avenir;
+        color: black;
+      }
+
+.logo-paragraph {
+  margin-top: 0px;
+  color: white;
+}
+
+.logo-paragraph-top {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-weight: 900;
+
+  color: white;
+  font-size: calc(35px + 2vmin);
+
+}
+
+.slantedButton {
+  -ms-transform: skewX(-20deg);
+  -webkit-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+  display: inline-block;
+  margin-right: 50px;
+  height:40px;
+  width: 200px;
+  background-color: #7E7DB1;
+  color: black;
+  border: solid gray 1px;
+  cursor: pointer;
+}
+
+.Name {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+
+@keyframes change {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes App-logo-spin {
