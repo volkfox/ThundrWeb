@@ -62,12 +62,19 @@
   cursor: pointer;
 }
 
-
 .thumbButton {
     height: 2.1vmin;
     margin-right: 4px;
     margin-top: 4px;
-    opacity: 0.2;
+    opacity: 0.8;
+}
+
+
+.thumbIcon {
+    height: 2.1vmin;
+    margin-right: 4px;
+    margin-top: 4px;
+    opacity: 0.4;
 }
 
 

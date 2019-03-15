@@ -51,12 +51,12 @@ const Home = (props) => {
           <p className='logo-paragraph-top' style={{color: textcolor}}>
           thundr
           </p>
-          <p className='logo-paragraph' style={{color: textcolor}}>
+          <p className='logo-paragraph'>
             brainstorm with sound
           </p>
         </div>
 
-      <Tbs />
+      { !lightning && <Tbs /> }
     <header className="App-header" style={{backgroundColor: bgcolor}}>
 
 

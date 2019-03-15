@@ -4,6 +4,7 @@ import "react-tabs/style/react-tabs.css";
 import { QRCode } from "react-qr-svg";
 import Postit from './Postit.js'
 import thumb from '../thumb0.svg';
+import thumb_purple from '../thumb1.svg';
 
 const Session = (props) => {
 
@@ -94,7 +95,7 @@ const Session = (props) => {
                        style={{backgroundColor: mode?"red":"white"}}
                        >
                       {mode?("Stop"):(" ")}
-                      {!mode && <img alt='vote icon' src={thumb} className="thumbButton"/>}
+                      {!mode && <img alt='vote icon' src={thumb_purple} className="thumbButton"/>}
               </button>
 
               <span className="tabCl">

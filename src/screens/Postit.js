@@ -84,7 +84,7 @@ const Postit = (props) => {
            <div className={channelClass}>
              <div className="controls" style={{display: 'flex'}}>
                 <div className='edit' onClick={editNote}>✎</div>
-                <img alt='vote icon' src={thumb} className="thumbButton"/>
+                <img alt='vote icon' src={thumb} className="thumbIcon"/>
                 <div className='votes' >{votes}</div>
 
                 <div className='delete' onClick={delNote}>✕</div>
