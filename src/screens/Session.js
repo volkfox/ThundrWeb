@@ -3,8 +3,11 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
 import { QRCode } from "react-qr-svg";
 import Postit from './Postit.js'
-import thumb from '../thumb0.svg';
-import thumb_purple from '../thumb1.svg';
+import thumb_purple from '../thumb_purple.svg';
+import thumb_green from '../thumb_green.svg';
+import thumb_pink from '../thumb_pink.svg';
+import thumb_blue from '../thumb_blue.svg';
+import thumb_cyan from '../thumb_cyan.svg';
 
 const Session = (props) => {
 
@@ -86,24 +89,28 @@ const Session = (props) => {
 
           </div>
           <div className="brain">
-          <div className= {banner}>
+          <div className="banner" className={banner}>
             <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
             <TabList>
               <button type="button"
                        className="voteButton"
                        onClick={ () => setMode(previous => !previous)}
-                       style={{backgroundColor: mode?"red":"white"}}
+                       style={{backgroundColor: mode?"red":"white", color: 'white'}}
                        >
                       {mode?("Stop"):(" ")}
-                      {!mode && <img alt='vote icon' src={thumb_purple} className="thumbButton"/>}
+                      {!mode && (channel == 0) && <img alt='vote icon' src={thumb_purple} className="thumbButton"/>}
+                      {!mode && (channel == 1) && <img alt='vote icon' src={thumb_green} className="thumbButton"/>}
+                      {!mode && (channel == 2) && <img alt='vote icon' src={thumb_pink} className="thumbButton"/>}
+                      {!mode && (channel == 3) && <img alt='vote icon' src={thumb_blue} className="thumbButton"/>}
+                      {!mode && (channel == 4) && <img alt='vote icon' src={thumb_cyan} className="thumbButton"/>}
               </button>
 
               <span className="tabCl">
-              <Tab>Brainstorm One</Tab>
-              <Tab>Brainstorm Two</Tab>
-              <Tab>Brainstorm Three</Tab>
-              <Tab>Brainstorm Four</Tab>
-              <Tab>Brainstorm Five</Tab>
+              <Tab>Brainstorm 1</Tab>
+              <Tab>Brainstorm 2</Tab>
+              <Tab>Brainstorm 3</Tab>
+              <Tab>Brainstorm 4</Tab>
+              <Tab>Brainstorm 5</Tab>
               </span>
             </TabList>
 

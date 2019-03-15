@@ -83,9 +83,12 @@ const Postit = (props) => {
            <div className="note" style={{transform: 'rotate( '+ angle +'deg)'}}>
            <div className={channelClass}>
              <div className="controls" style={{display: 'flex'}}>
-                <div className='edit' onClick={editNote}>✎</div>
-                <img alt='vote icon' src={thumb} className="thumbIcon"/>
-                <div className='votes' >{votes}</div>
+                <div className='edit' onClick={editNote} style={{color: 'white'}}>✎</div>
+
+                <div className='votes' >
+                  <img alt='vote icon' src={thumb} className="thumbIcon"/>
+                  {votes}
+                </div>
 
                 <div className='delete' onClick={delNote}>✕</div>
                 </div>
