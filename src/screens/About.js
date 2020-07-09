@@ -3,15 +3,19 @@ import React from 'react';
 let data = [
     {
         name: 'Team   ',
-        text: 'caroline emma austin daniel '
+        text: 'daniel (React, IOS) caroline (design) emma (cookies) austin (voice) '
     },
     {
         name: 'About  ',
         text: 'brainstorming web+mobile app'
     },
     {
-        name: 'IOS app',
+        name: 'Get  app',
         text: 'http://web.stanford.edu/~austinhj/'
+    },
+    {
+        name: 'Get native IOS app',
+        text: 'https://github.com/volkfox/Thundr'
     }
 ];
 
