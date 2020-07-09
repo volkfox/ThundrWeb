@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+//import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+//import logo from '../logo.svg';
 import Tbs from './About.js'
-import logo from '../logo.svg';
 import bolt from '../thunder_b.svg';
 import bbolt from '../thunderBlack.svg';
 import {Link} from 'react-router-dom'

@@ -89,7 +89,7 @@ const Session = (props) => {
 
           </div>
           <div className="brain">
-          <div className="banner" className={banner}>
+          <div className={banner}>
             <Tabs defaultIndex={0} onSelect={index => setChannel(index)}>
             <TabList>
               <button type="button"
@@ -98,11 +98,11 @@ const Session = (props) => {
                        style={{backgroundColor: mode?"red":"white", color: 'white'}}
                        >
                       {mode?("Stop"):(" ")}
-                      {!mode && (channel == 0) && <img alt='vote icon' src={thumb_purple} className="thumbButton"/>}
-                      {!mode && (channel == 1) && <img alt='vote icon' src={thumb_green} className="thumbButton"/>}
-                      {!mode && (channel == 2) && <img alt='vote icon' src={thumb_pink} className="thumbButton"/>}
-                      {!mode && (channel == 3) && <img alt='vote icon' src={thumb_blue} className="thumbButton"/>}
-                      {!mode && (channel == 4) && <img alt='vote icon' src={thumb_cyan} className="thumbButton"/>}
+                      {!mode && (channel === 0) && <img alt='vote icon' src={thumb_purple} className="thumbButton"/>}
+                      {!mode && (channel === 1) && <img alt='vote icon' src={thumb_green} className="thumbButton"/>}
+                      {!mode && (channel === 2) && <img alt='vote icon' src={thumb_pink} className="thumbButton"/>}
+                      {!mode && (channel === 3) && <img alt='vote icon' src={thumb_blue} className="thumbButton"/>}
+                      {!mode && (channel === 4) && <img alt='vote icon' src={thumb_cyan} className="thumbButton"/>}
               </button>
 
               <span className="tabCl">

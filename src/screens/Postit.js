@@ -15,7 +15,7 @@ const Postit = (props) => {
   const posXRef = firebase.database().ref(session+'/messages/'+key+'/posX');
   const posYRef = firebase.database().ref(session+'/messages/'+key+'/posY');
 
-  const [angle, setAngle] = useState(randBetween(-10,20));
+  const [angle] = useState(randBetween(-10,20));
   const [noteMode, setNoteMode] = useState(0);
   const [text, setText] = useState("");
   useEffect( () => {

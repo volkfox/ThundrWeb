@@ -10,8 +10,8 @@ let data = [
         text: 'brainstorming web+mobile app'
     },
     {
-        name: 'Get  app',
-        text: 'http://web.stanford.edu/~austinhj/'
+        name: 'Get React client app',
+        text: 'https://github.com/volkfox/Thundr-ReactNative-client/'
     },
     {
         name: 'Get native IOS app',
