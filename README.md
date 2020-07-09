@@ -39,4 +39,7 @@ Multiple channels can exist in one session. Switching a channel on the webscreen
 ![Alt text](channel-change.png?raw=true "Channels")
 
 
+Source code for mobile clients:
 
+Native IOS app: https://github.com/volkfox/Thundr
+React Native app: https://github.com/volkfox/Thundr-ReactNative
