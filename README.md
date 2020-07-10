@@ -38,6 +38,7 @@ Multiple channels can exist in one session. Switching a channel on the webscreen
 
 ![Alt text](channel-change.png?raw=true "Channels")
 
+Technologies: JS, ReactJS, Firebase
 
 Source code for mobile clients:
 
