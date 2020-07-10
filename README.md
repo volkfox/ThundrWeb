@@ -1,4 +1,4 @@
-# Thundr App
+# Thundr Brainstorming System
 
 This app is designed for a brainstorm collaboration remotely or in one room.
 It supports a common webscreen (facilitator's console) and multiple connected mobile apps (clients) for people participating in the brainstorm.
