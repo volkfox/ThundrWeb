@@ -3,7 +3,7 @@ import React from 'react';
 let data = [
     {
         name: 'Team   ',
-        text: 'daniel (React, IOS) caroline (design) emma (cookies) austin (voice) '
+        text: 'daniel (React, IOS) caroline (design) emma (cookies) austin (voice SDK) '
     },
     {
         name: 'About  ',

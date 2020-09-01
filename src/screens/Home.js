@@ -5,6 +5,7 @@ import Tbs from './About.js'
 import bolt from '../thunder_b.svg';
 import bbolt from '../thunderBlack.svg';
 import {Link} from 'react-router-dom'
+import ReactTooltip from "react-tooltip";
 
 const FLASHES = 4
 const MAX_FLASH_INTERVAL = 250
@@ -47,26 +48,43 @@ const Home = (props) => {
   return (
       <div className="App" >
 
-        <div className="Name"  >
+        <div className="Name" data-tip data-for="helpTip"  >
           <p className='logo-paragraph-top' style={{color: textcolor}}>
           thundr
           </p>
           <p className='logo-paragraph'>
             brainstorm with sound
           </p>
+        <ReactTooltip id='helpTip' aria-haspopup='true' place={'bottom'} effect="solid">
+          <div className="help"> 
+          <ul>
+          <li>THUNDR is a collaboration tool with voice notes</li>
+          <li>It supports a common web canvas and multiple mobile clients</li>
+          <li>   You can start a new session by clicking on the cloud ↴ </li>
+          <li>   You can return to the session later by bookmarking it in a browser</li>
+          <li>   Install & launch a mobile client to create notes</li>
+          </ul>
+          </div>
+          </ReactTooltip>
         </div>
 
-      { !lightning && <Tbs /> }
+    <Tbs /> 
     <header className="App-header" style={{backgroundColor: bgcolor}}>
 
 
-      <Link to={"/session/" + props.code}>
-        <img src={lightning?bbolt:bolt} className="App-logo" alt="logo"/>
+      <Link to={"/session/" + props.code} data-tip data-for="startTip">
+        <img src={lightning?bbolt:bolt} className="App-logo" title="start new session" alt="launch new session"/>
+       <ReactTooltip id="startTip" place="top" effect="solid">
+         Start a new collaboration
+       </ReactTooltip>
       </Link>
 
 
 
     </header>
+    <footer className="App-footer">
+    (c) Thundr Project 2020
+    </footer>
   </div>);
 }
 

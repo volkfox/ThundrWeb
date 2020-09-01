@@ -32,6 +32,11 @@
   color: white;
 }
 
+.App-footer {
+  position: relative;
+  top: -30px;
+  color: white; 
+}
 .noteInput {
   background-color: lightyellow;
   border: none;
@@ -45,6 +50,10 @@
     background-color: white;
     font-family: Avenir;
     box-shadow: 0 0 10px #719ECE;
+}
+
+#menu ul, #menu li {
+    margin: 0; padding: 0;
 }
 
 .controls {
@@ -89,7 +98,9 @@
   color:white;
 }
 
-
+.help {
+ padding-left: 25px;
+}
 
 
 .App-link {
@@ -370,11 +381,9 @@ html{
           padding: 15px;
           background: #A6ADE8;
           transition: all .2s ease-in;
-          transform: skew(-40deg);
         }
           .tabs-header li > a span {
             display: block;
-            transform: skew(40deg);
           }
         .tabs-header li > a:hover {
           background: black;
