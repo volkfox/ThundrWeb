@@ -15,7 +15,7 @@ let data = [
     },
     {
         name: 'Get native IOS app',
-        text: 'https://github.com/volkfox/Thundr'
+        text: 'https://testflight.apple.com/join/xPD4SdEe'
     }
 ];
 
