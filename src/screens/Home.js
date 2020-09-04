@@ -43,8 +43,10 @@ const Home = (props) => {
     setTimeout(thunderEffect, Math.random()*10000);
   },[]);
 
-  let bgcolor = lightning?'white':'#A6ADE8';
-  let textcolor = lightning?'black':'white';
+  //let bgcolor = lightning?'white':'#A6ADE8';
+  //let textcolor = lightning?'black':'white';
+  let bgcolor = '#A6ADE8';
+  let textcolor = 'white';
   return (
       <div className="App" >
 
